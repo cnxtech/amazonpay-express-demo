@@ -7,7 +7,7 @@ $_SESSION["token"] = md5(uniqid(mt_rand(), true));
 
 <head>
     <script type='text/javascript' src="https://static-na.payments-amazon.com/OffAmazonPayments/us/sandbox/js/Widgets.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     <style>
         label,
@@ -42,6 +42,7 @@ $_SESSION["token"] = md5(uniqid(mt_rand(), true));
                 $.getJSON("ExpressSignature.php", {
                     amount: parseInt($("#amount").attr("value")) * parseInt($("#QuantitySelect option:selected").val()),
                     currencyCode: 'USD',
+                    sellerOrderId: 'order',
                     sellerNote: $("#itemname").text() + ' QTY: ' + $("#QuantitySelect option:selected").val(),
                     scope: 'payments:billing_address',                   
                     csrf:$("#csrf").val()
