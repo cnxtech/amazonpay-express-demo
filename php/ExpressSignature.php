@@ -1,7 +1,7 @@
 <?php
 
-require_once 'Express.config.php';
 session_start();
+require_once 'Express.config.php';
 
 if (isset($_REQUEST["csrf"]) && $_REQUEST["csrf"] == $_SESSION["token"]) {
     $_SESSION = array();
